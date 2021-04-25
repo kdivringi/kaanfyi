@@ -8,7 +8,7 @@
     "preexport": "npm run build-global",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "build-global":"postcss assets/css/global.css --dir static"
+    "build-global": "postcss assets/css/global.css --dir static"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -34,6 +34,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "sapper": "^0.28.0",
     "svelte": "^3.17.3",
+    "svelte-preprocess": "^4.7.2",
     "tailwindcss": "^2.1.2"
   }
 }

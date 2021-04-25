@@ -38,7 +38,7 @@
   </article>
 </section>
 
-<style>
+<style lang="postcss">
   h1 {
     text-align: center;
     margin: 0 auto;
@@ -49,6 +49,10 @@
     text-transform: uppercase;
     font-weight: 700;
     margin: 0 0 0.5em 0;
+  }
+
+  h2 {
+    @apply font-bold bg-blue-100;
   }
 
   section {
@@ -68,9 +72,6 @@
       grid-template-columns: 1fr 1fr;
     }
   }
-
-
-
 
   article {
     border: 1px solid purple;
