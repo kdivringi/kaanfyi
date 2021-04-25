@@ -92,7 +92,8 @@ export default {
 					generate: 'ssr',
 					hydratable: true
 				},
-				emitCss: false
+				emitCss: false,
+				preprocess: sveltePreprocess({ postcss: true })
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
