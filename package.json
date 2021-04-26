@@ -8,7 +8,7 @@
     "preexport": "npm run build-global",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "build-global": "postcss assets/css/global.css --dir static"
+    "build-global": "postcss assets/css/ --dir static"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -26,6 +26,7 @@
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-replace": "^2.4.0",
     "@rollup/plugin-url": "^5.0.0",
+    "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.12",
     "postcss-cli": "^8.3.1",
