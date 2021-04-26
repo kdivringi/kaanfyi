@@ -4,26 +4,11 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+		@apply border-red-100 border-b font-light px-4 flow-root;
 	}
 
 	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	li {
-		display: block;
-		float: left;
+		@apply flex;
 	}
 
 	[aria-current] {
@@ -42,17 +27,15 @@
 	}
 
 	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+		@apply block py-4 px-2;
 	}
 </style>
 
 <nav>
 	<ul>
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-		<li><a aria-current="{segment ==='portfolio' ? 'page' : undefined }" href="portfolio">portfolio</a></li>
+		<!-- <li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
+		<!-- <li><a aria-current="{segment ==='portfolio' ? 'page' : undefined }" href="portfolio">portfolio</a></li> -->
 		<li><a aria-current="{segment ==='feed' ? 'page' : undefined }" href="feed">feed</a></li>
 	</ul>
 </nav>
