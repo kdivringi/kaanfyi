@@ -38,45 +38,24 @@
   </article>
 </section>
 
-<style lang="postcss">
+<style>
   h1 {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
+    @apply text-3xl sm:text-6xl text-indigo-900 font-semibold tracking-tighter uppercase mb-8 text-center
   }
 
   h2 {
-    @apply font-bold bg-blue-100;
+    @apply font-bold text-indigo-700 text-xl sm:text-2xl tracking-wide capitalize
   }
 
   section {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fill, 200px);
-    grid-gap: 20px;
-    justify-content: space-around;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
-
-    section {
-      grid-template-columns: 1fr 1fr;
-    }
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 xl:gap-8 auto-rows-auto
   }
 
   article {
-    border: 1px solid purple;
-    border-radius: 0.5em;
-    padding: 1em;
-    box-shadow: 3px 3px purple;
+    @apply border-purple-600 rounded-lg p-4 shadow-lg bg-gradient-to-br to-white from-purple-50
+  }
+
+  a {
+    @apply text-indigo-600;
   }
 </style>
