@@ -17,6 +17,7 @@
         >the back of the frontend</a
       > developer so this site is a work in progress... always.
     </p>
+    <a href="https://github.com/kdivringi">Link to my Github</a>
   </article>
   <article>
     <h2>Play Krypto!</h2>
