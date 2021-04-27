@@ -16,7 +16,7 @@
     Svelte and <a href="https://tailwindcss.com/">TailwindCSS</a> are kinda weird
     together aren't they?
   </p>
-  <p>Svelte has this awesome built in styling capability but Tailwind will have you mostly ignore it, since "no custom CSS" while using it is a virtue. The best practice for production builds is a regexp based pass over generated content that is completely outside of the Svelte build process. It may seem conceptually awkward but I actually think they go well together if you use them in a certain way, a way that may be different that what you've seen before.</p>
+  <p>Svelte has this awesome built in styling capability but Tailwind will have you mostly ignore it, since "no custom CSS" while using it is a virtue. The best practice for production builds is a <a href="https://tailwindcss.com/docs/optimizing-for-production">regexp based pass over generated content</a> that is completely outside of the Svelte build process. It may seem conceptually awkward but I actually think they go well together if you use them in a certain way, a way that may be different that what you've seen before.</p>
 
   <p>This is the default way, with utility classes:<p>
 <pre><code class="language-html">
@@ -40,7 +40,7 @@
   <li>HTML has that clean look that Svelte allows: not just less classes, none at all most of the time.</li>
 </ul>
 
-<p>I should mention that I got the general idea from the <a href="https://github.com/ben-rogerson/twin.macro">twin.macro</a> css-in-js library for <a href="https://reactjs.org/">React</a>. I originally thought that I would need to write a similar library for Svelte but I figured out how to reproduce it by composing the existing tools and I like what I ended up with more. The only thing I needed to add on the Svelte end was the official plugin for adding preprocessing capabilities to style tags. I still get syntax highlighting, validation and intellisense from the official Svelte VS Code Plugin (along with the PostCSS one). A testament to the framework and community.</p>
+<p>I should mention that I got the general idea from the <a href="https://github.com/ben-rogerson/twin.macro">twin.macro</a> css-in-js library for <a href="https://reactjs.org/">React</a>. I originally thought that I would need to write a similar library for Svelte but I figured out how to reproduce it by composing the existing tools and I like what I ended up with more. The only thing I needed to add on the Svelte end was the official plugin for adding preprocessing capabilities to style tags. I still get syntax highlighting, validation and intellisense from the official Svelte VS Code Plugin (along with the PostCSS/Tailwind one). A testament to the framework and community.</p>
 
 <p>
  The general steps to make this work are as follows:
