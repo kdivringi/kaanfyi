@@ -15,3 +15,5 @@ export const codeTwo = `<a href="/">Home</a>
     @apply underline text-blue-600 hover:text-blue-800;
   }
 </style>`
+
+export const codeThree = `preprocess: sveltePreprocess({ postcss: true })`;

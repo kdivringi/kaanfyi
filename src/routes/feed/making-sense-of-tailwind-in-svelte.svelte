@@ -1,9 +1,10 @@
 <svelte:head>
   <title>Making sense of Tailwind in Svelte</title>
   <link rel="stylesheet" href="/typography.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />
 </svelte:head>
 <script>
-  import { codeOne, codeTwo } from './_misc.js'
+  import { codeOne, codeTwo, codeThree } from './_misc.js'
   
   // This is annoying. The base tab messes this up otherwise...
   const page ='/feed/making-sense-of-tailwind-in-svelte'
@@ -18,12 +19,12 @@
   <p>Svelte has this awesome built in styling capability but Tailwind will have you mostly ignore it, since "no custom CSS" while using it is a virtue. The best practice for production builds is a regexp based pass over generated content that is completely outside of the Svelte build process. It may seem conceptually awkward but I actually think they go well together if you use them in a certain way, a way that may be different that what you've seen before.</p>
 
   <p>This is the default way, with utility classes:<p>
-<pre><code>
+<pre><code class="language-html">
   {codeOne}
 </code></pre>
 
 <p>This is how I've been doing it:</p>
-<pre><code>
+<pre><code class="language-html">
   {codeTwo}
 </code></pre>
 
@@ -52,14 +53,68 @@
 </ol>
 
 <h2 id="install">Install Tailwind & PostCSS</h2>
-<p>Stuff</p>
+<p>These are the packages that I needed to install.</p>
+
+<pre><code class="language-shell">npm i -D tailwindcss postcss postcss-cli autoprefixer</code></pre>
+
+<p>I followed the Tailwind instructions to <a href="https://tailwindcss.com/docs/installation#installing-tailwind-css-as-a-post-css-plugin">Install as a PostCSS plugin.</a> You'll want to initialize both your Tailwind and PostCSS config files at the same time via:</p>
+
+<pre><code class="language-shell">npx tailwindcss init -p</code></pre>
+
+<p>
+  Note that for the purposes of this tutorial it's not strictly necessary to have these files but I think using Tailwind like this can encourage getting more into PostCSS and how Tailwind is built so I want to encourage it.
+</p>
 
 <h2 id="preflight">Setup your preflight styles</h2>
+<p>
+  Even though we are not generating the entire Tailwind CSS file, we still want to apply the <a href="https://tailwindcss.com/docs/preflight">Preflight styles</a> that the utility classes expect to be present. These styles normalize browser style inconsistencies (pretty much by removing almost everything) and ensure that utility classes start from the same styling base.
+</p>
+
+<p>
+  You can start by creating a css file that contains only:
+</p>
+
+<pre><code class="language-scss">@tailwind base;</code></pre>
+
+<p>
+  In my Sapper project I put this in 'assets/css/global.css' and I used PostCSS to process all CSS files in that directory into the 'static/' directory:
+</p>
+
+<pre><code class="language-shell">npx postcss assets/css/ --dir static</code></pre>
+
+<p>My Sapper 'template.html' file already had the 'global.css' in the header but you may need to add something to a top level svelte:head tag.</p>
 
 <h2 id="preprocess">Setup svelte-preprocess</h2>
 
+<p><a href="https://github.com/sveltejs/svelte-preprocess">svelte-preprocess</a> is an official plugin that will allow you to, among other things, process the style tag contents as PostCSS. First, install it in your project:</p>
+
+<pre><code class="language-shell">npm i -D svelte-preprocess</code></pre>
+
+<p>You will need to add it as a rollup plugin to the appropriate file, according to the <a href="https://github.com/sveltejs/svelte-preprocess/blob/main/docs/usage.md">Usage</a> documentation. This is how I configured the plugin:</p>
+
+<pre><code class="language-js">{ codeThree }</code></pre>
+
+<p>Now you should be ready to use PostCSS, and by extension Tailwind, directly in Svelte components! The <a href="https://github.com/sveltejs/svelte-preprocess/blob/main/docs/preprocessing.md#postcss-sugarss">documentation</a> recommends setting lang="postcss" in the style tag but I found this not to be necessary and to oddly break syntax highlighting in VS Code.</p>
+
 <h2 id="vscode">Bonus VS Code setup tips</h2>
+
+<ol>
+  <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode">Svelte extension if you haven't already</a></li>
+  <li>Disable the built in CSS validation by setting the "svelte.plugin.css.diagnostics.enable" setting to false in your settings.</li>
+  <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=csstools.postcss">PostCSS plugin</a></li>
+  <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">TailwindCSS intellisense plugin</a></li>
+</ol>
+
+<h2>Conclusion</h2>
+
+<p>I hope you find this guide useful. So far, I think that using Svelte and Tailwind together like this better brings out the true value of both libraries in a way that's greater than the sum of their parts.</p>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js" integrity="sha512-xR+IAyN+t9EBIOOJw5m83FTVMDsPd63IhJ3ElP4gmfUFnQlX9+eWGLp3P4t3gIjpo2Z1JzqtW/5cjgn+oru3yQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-zc7WDnCM3aom2EziyDIRAtQg1mVXLdILE09Bo+aE1xk0AM2c2cVLfSW9NrxE5tKTX44WBY0Z2HClZ05ur9vB6A==" crossorigin="anonymous"></script>
+
 </article>
+
 
 <style>
   article {
