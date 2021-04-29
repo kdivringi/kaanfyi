@@ -15,7 +15,6 @@
 
 <style>
   div.bg {
-    min-width: 100vw;
     min-height: 100vh;
     background-color: #269;
     background-image: linear-gradient(white 2px, transparent 2px),
