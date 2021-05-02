@@ -15,7 +15,7 @@
         "All templates in directory or subdirectories if not overridden",
       accessCode: "{{ <key> }}",
       example:
-        "Section specific overrides like a new default layout, or section specific data to subsequently dynamically generate pages from).",
+        "Section specific overrides like a new default layout, or section specific data to subsequently dynamically generate pages from.",
     },
     {
       title: "Template Data File",
