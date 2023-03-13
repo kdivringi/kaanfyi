@@ -98,6 +98,22 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog-sk">
 } & { render(): Render[".md"] },
 },
+"projects": {
+"lunar-eclipse.md": {
+  id: "lunar-eclipse.md",
+  slug: "lunar-eclipse",
+  body: string,
+  collection: "projects",
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] },
+"mars-rover.md": {
+  id: "mars-rover.md",
+  slug: "mars-rover",
+  body: string,
+  collection: "projects",
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] },
+},
 
 	};
 

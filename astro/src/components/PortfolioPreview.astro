@@ -1,6 +1,11 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
 const { project } = Astro.props;
-const { frontmatter } = project;
+const { data: frontmatter } = project;
 ---
 
 <style lang="scss">
@@ -127,7 +132,7 @@ const { frontmatter } = project;
 				))
 			}
 		</div>
-		<a class="link" href={project.url}>
+		<a class="link" href={`/projects/${project.slug}`}>
 			<span class="linkInner">View</span>
 		</a>
 	</div>
