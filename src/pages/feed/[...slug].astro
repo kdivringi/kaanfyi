@@ -1,0 +1,31 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Footer from '@/components/Footer.astro';
+import Prose from '@/components/Prose.astro';
+import Nav from '@/components/Nav.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('skBlog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+  }))
+}
+
+const { slug } = Astro.params;
+
+const entry = await getEntry('skBlog', slug);
+
+if (!entry) {
+  throw new Error(`Entry not found for slug: ${slug}`);
+}
+
+const { Content } = await render(entry);
+---
+<Layout>
+<header><Nav/></header>
+<Prose>
+    <Content />
+</Prose>
+<Footer/>
+</Layout>

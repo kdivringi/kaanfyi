@@ -1,0 +1,87 @@
+---
+import BentoGrid from "./BentoGrid";
+import FeaturedPost from "./FeaturedPost";
+import ProjectCard from "./ProjectCard";
+import { MoveRight, User, Briefcase, Newspaper, Github, Twitter, Linkedin, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import me from '../assets/ai-me.webp'
+import solarExploration from '../assets/solarExploration.webp'
+import BlogSection from "./BlogSection.astro";
+
+const meAlt = `
+The image features a young man with short, curly dark hair and light skin, smiling widely with an open mouth. He is wearing a dark-colored, striped button-up shirt. Behind him, there is a neon sign that reads "CURRY UP NOW" in bright pink, with a stylized design that includes two wheels, resembling a rickshaw or food cart. The background wall is a dark blue or gray color. The overall scene gives off a fun and energetic atmosphere, possibly in a restaurant or casual dining spot. Generated via AI telephone from an image that the real ones will recognize.
+`
+---
+            <main>
+                <BentoGrid>
+                    {/* About Card */}
+                    <div class="bento-card col-span-2 md:row-span-1">
+                        <div class="flex flex-col h-full p-6 bg-background rounded-xl border-2 border-border shadow-md">
+                            <div class="flex items-center gap-2 mb-4">
+                                <User size={18} class="text-primary" />
+                                <h3 class="font-bold">About Me</h3>
+                            </div>
+                            <p class="mb-4">
+                                Frontend developer, former Pythonista & mechanical engineer. I enjoy making systems go brrr and using what I build.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Profile Image */}
+                    <div class="bento-card col-span-1 md:row-span-1 aspect-square">
+                        <div class="relative h-full rounded-xl overflow-hidden border-2 border-border shadow-md">
+                            <img src={me.src} width={me.width} height={me.height} alt={meAlt} class="object-center" />
+                        </div>
+                    </div>
+
+                    {/* Featured Project */}
+                    <ProjectCard
+                        title="Solar Exploration Timeline"
+                        description="Long ago I accidentally built an interactive visualization while trying to be a data scientist and the rest was history"
+                        imageSrc={solarExploration.src}
+                        a="http://kdivringi.github.io/d3-solar/"
+                        className="col-span-3 md:col-span-2"
+                        external
+                    />
+
+                    {/* Featured Blog Post */}
+                    <FeaturedPost
+                        title="Making sense of Tailwind in Svelte"
+                        excerpt="Svelte has this awesome built in styling capability but Tailwind will have you mostly ignore it. Here's how to make sense of the two."
+                        date="Apr 25, 2021"
+                        readTime="4 min read"
+                        a="/feed/making-sense-of-tailwind-in-svelte"
+                        className="col-span-3 md:col-span-1"
+                    />
+
+                    {/* Projects Section */}
+                    <div class="bento-card col-span-3 md:col-span-1">
+                        <div class="flex flex-col h-full p-6 bg-background rounded-xl border-2 border-border shadow-md">
+                            <div class="flex items-center gap-2 mb-4">
+                                <Briefcase size={18} class="text-primary" />
+                                <h3 class="font-bold">Projects</h3>
+                            </div>
+                            <ul class="space-y-3 mb-4">
+                                <li>
+                                    <div class="flex items-center gap-1">
+                                        <a class="hover:underline font-medium" href="http://kdivringi.github.io/krypto/">Play Krypto</a>
+                                        <ExternalLink size={16} class="self-center" />
+                                    </div>
+                                    <p class="text-sm">A classic arithmatic card game.</p>
+                                </li>
+                                <li>
+                                    <div class="flex items-center gap-1">
+                                        <a class="hover:underline font-medium" href="https://visx-rodeo.netlify.app/">VisX rodeo</a>
+                                        <ExternalLink size={16} class="self-center" />
+                                    </div>
+                                    <p class="text-sm">Experiments with fancy React library that wraps d3 but not too much.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <BlogSection />
+                </BentoGrid>
+
+            </main>
+

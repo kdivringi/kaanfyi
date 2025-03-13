@@ -3,39 +3,31 @@
   "description": "TODO",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "preexport": "npm run build-global",
-    "export": "sapper export --legacy",
-    "start": "node __sapper__/build",
-    "build-global": "postcss assets/css/ --dir static"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "compression": "^1.7.1",
-    "polka": "next",
-    "sirv": "^1.0.0"
+    "@astrojs/react": "^4.2.1",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@tailwindcss/vite": "^4.0.12",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.4.2",
+    "astro-icon": "^1.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "graphql-request": "^7.1.2",
+    "lucide-react": "^0.479.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.12",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.4.0",
-    "@rollup/plugin-url": "^5.0.0",
-    "@tailwindcss/typography": "^0.4.0",
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.12",
-    "postcss-cli": "^8.3.1",
-    "rollup": "^2.3.4",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sapper": "^0.28.0",
-    "svelte": "^3.17.3",
-    "svelte-preprocess": "^4.7.2",
-    "tailwindcss": "^2.1.2"
+    "@iconify-json/lucide": "^1.2.28",
+    "@tailwindcss/typography": "^0.5.16"
   }
 }
