@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import BlogSectionButton from './BlogSectionButton';
 
 const data = await getAllPosts();
-const allPosts = data.publication.posts.edges;
+const allPosts = data.publication.posts.edges.slice(0,3);
 ---
 <div class="bento-card col-span-3 md:col-span-2">
     <div class="flex flex-col h-full p-6 bg-background rounded-xl border-2 border-border shadow-md">
